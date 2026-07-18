@@ -24,7 +24,7 @@ struct DSU {
     bool hug(ll i, ll j) {
         if((i = find(i)) == (j = find(j))) return 0;
         if(sz[i] < sz[j]) swap(i,j);
-        sz[i] += sz[j];
         par[j] = i;
+        return sz[i] += sz[j];
     }
 };
