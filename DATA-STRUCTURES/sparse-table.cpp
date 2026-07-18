@@ -2,7 +2,7 @@
 #include "operations.h"
 
 /**
- * Sparse table for idempotent operators.
+ * @brief Sparse table for idempotent operators.
  * 
  * Data structure to perform idempotent associative range queries in O(1).
  * Here "idempotent" means that querying a range multiple times will not change the answer,
