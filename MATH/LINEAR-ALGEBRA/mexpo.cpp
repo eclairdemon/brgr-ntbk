@@ -1,0 +1,25 @@
+#include "template.h"
+#include "linalg.h"
+
+/**
+ * @brief Fast matrix exponentiation.
+ * 
+ * This is useful for solving linear recurrences very quickly.
+ * For example, exponentiating [[1 1][1 0]] to find Fibonacci numbers.
+ * 
+ * @param a The matrix to be exponentiated
+ * @param x The exponent
+ * @param m The modulo 
+ * 
+ * @return a**x % m
+ */
+Matrix<ll> mexpo(Matrix<ll> a, ll x, ll m = MOD) {
+    if(a.rows() != a.cols()) throw invalid_argument("Can only exponentiate square matrices, but given dimensions " + to_string(a.rows()) + " and " + to_string(a.cols()));
+    Matrix<ll> out = Matrix<ll>::identity(a.rows());
+    while(x) {
+        if(x&1) out = (out*a)%m;
+        a = (a*a)%m;
+        x >>= 1;
+    }
+    return out;
+}
