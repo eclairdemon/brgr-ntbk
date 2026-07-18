@@ -14,7 +14,6 @@
  * @return a**x % m
  */
 Matrix<ll> mexpo(Matrix<ll> a, ll x, ll m = MOD) {
-    if(a.rows() != a.cols()) throw invalid_argument("Can only exponentiate square matrices, but given dimensions " + to_string(a.rows()) + " and " + to_string(a.cols()));
     Matrix<ll> out = Matrix<ll>::identity(a.rows());
     while(x) {
         if(x&1) out = (out*a)%m;
